@@ -7,7 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WLAppDetailPageController">
             <connections>
-                <outlet property="tableHeadView" destination="zdv-4I-Ehy" id="VxK-sr-lYj"/>
+                <outlet property="sectionHeadView" destination="iPL-vO-cNM" id="qOC-uw-4LJ"/>
+                <outlet property="tableHeadView" destination="zdv-4I-Ehy" id="waE-8m-XM1"/>
                 <outlet property="tableView" destination="8Z9-QA-bJn" id="I9q-Kz-Fdk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -51,7 +52,7 @@
                         <constraint firstItem="J7S-sX-ara" firstAttribute="centerX" secondItem="Vu0-5w-Cz1" secondAttribute="centerX" id="txA-54-67Z"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="297" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Z9-QA-bJn">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="297" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Z9-QA-bJn">
                     <rect key="frame" x="0.0" y="49" width="320" height="584"/>
                     <color key="backgroundColor" red="1" green="0.1605941162" blue="0.073244348949999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -177,5 +178,32 @@
             </tableViewCellContentView>
             <point key="canvasLocation" x="154" y="-306"/>
         </tableViewCell>
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="iPL-vO-cNM">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OBL-CE-TCF">
+                    <rect key="frame" x="22" y="3" width="278" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="278" id="ryP-11-cFf"/>
+                        <constraint firstAttribute="height" constant="28" id="sp7-d5-uTh"/>
+                    </constraints>
+                    <segments>
+                        <segment title="应用详情"/>
+                        <segment title="用户评论"/>
+                        <segment title="相关推荐"/>
+                    </segments>
+                    <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="OBL-CE-TCF" secondAttribute="trailing" constant="10" id="N5d-zj-hpH"/>
+                <constraint firstItem="OBL-CE-TCF" firstAttribute="leading" secondItem="iPL-vO-cNM" secondAttribute="leading" constant="10" id="VE6-am-iOa"/>
+                <constraint firstItem="OBL-CE-TCF" firstAttribute="centerY" secondItem="iPL-vO-cNM" secondAttribute="centerY" id="pJZ-FG-XJT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="154" y="-311"/>
+        </view>
     </objects>
 </document>
