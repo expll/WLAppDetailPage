@@ -1,0 +1,33 @@
+//
+//  TTPhotoBrowser.h
+//  Installer
+//
+//  Created by Eason on 01/12/2013.
+//  Copyright (c) 2013 www.xyzs.com. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "TTHttpAppDetailResponse.h"
+
+@class TTPhotoBrowser;
+@protocol TTPhotoBrowserDelegate <NSObject>
+
+- (void)photoBrowser:(TTPhotoBrowser *)photoBrowser didChangedToPageAtIndex:(NSUInteger)index;
+
+@end
+
+@interface TTPhotoBrowser : UIViewController
+
+@property (nonatomic, weak) id<TTPhotoBrowserDelegate> delegate;
+
+@property (nonatomic, strong) NSArray *photos;
+
+@property (nonatomic, assign) NSUInteger currentPhotoIndex;
+@property (nonatomic, strong) TTHttpAppDetailApp *appInfo;
+
+@property (nonatomic, assign) int iposition;
+
+
+- (void)show;
+
+@end

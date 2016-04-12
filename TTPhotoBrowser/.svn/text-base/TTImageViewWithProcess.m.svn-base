@@ -1,0 +1,165 @@
+//
+//  TTImageViewWithProcess.m
+//  Installer
+//
+//  Created by kingnet on 14-11-26.
+//  Copyright (c) 2014年 www.freetalk.com. All rights reserved.
+//
+
+#import "TTImageViewWithProcess.h"
+#import "XYCircleProgress.h"
+
+@interface TTProcessView : UIView{
+    UIView* _subVIew;
+}
+
+-(void)setProcess:(float)process;
+
+@end
+
+@implementation TTProcessView
+- (instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    _subVIew = [[UIView alloc]initWithFrame:frame];
+    _subVIew.top =0;
+    _subVIew.left =0;
+    _subVIew.width = 0;
+    _subVIew.backgroundColor = TTHexColor(0xdde1e9);
+    self.backgroundColor = TTHexColor(0xf5f5f8);
+    
+    [[_subVIew layer]setCornerRadius:self.height/2];//圆角
+    
+    [[self layer] setBorderWidth:0.5];//画线的宽度
+    [[self layer] setBorderColor:TTHexColor(0xdde1e9).CGColor];//颜色
+    [[self layer]setCornerRadius:self.height/2];//圆角
+    
+    [self addSubview:_subVIew];
+    
+    
+    return self;
+}
+-(void)setProcess:(float)process{
+    [_subVIew setWidth:self.width*process];
+}
+
+@end
+
+
+
+////////////////////////////////////// TTImageViewWithProcess
+@interface TTImageViewWithProcess ()
+{
+    BOOL _bCircleType;
+}
+
+@property (nonatomic, strong) TTProcessView *processview;
+
+@property (nonatomic, strong) XYCircleProgress *circleProgress;
+
+@end
+
+@implementation TTImageViewWithProcess
+
+
+- (instancetype) initWithFrame:(CGRect)frame onCircleType:(BOOL)bCircleType
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        _bCircleType = bCircleType;
+        
+        self.circleProgress = [[XYCircleProgress alloc] initWithFrame:CGRectMake(0, 0, 50.0, 50.0)];
+        
+        [self.circleProgress setBackgroundColor:[UIColor clearColor]];
+        
+        [self addSubview:self.circleProgress];
+        self.circleProgress.center = self.center;
+        [self setBackgroundColor:TTHexColor(0xf5f5f8)];
+    }
+    return self;
+}
+
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    
+    _processview = [[TTProcessView alloc]initWithFrame:CGRectMake( (self.width-71)/2, self.height/2+38, 71, 3)];
+    [self addSubview:_processview];
+    self.backgroundColor = TTHexColor(0xf5f5f8);
+    self.clipsToBounds = YES;
+    
+    return self;
+}
+
+- (void) dealloc
+{
+    _processview = nil;
+    _circleProgress = nil;
+}
+
+
+- (void)sd_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder
+{
+    if (!_bCircleType) {
+        self.contentMode = UIViewContentModeCenter;
+    }
+    
+    __weak TTImageViewWithProcess *weakself = self;
+    
+    [super sd_setImageWithURL:url placeholderImage:placeholder options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            [weakself setProgress:receivedSize andExpectedSize:expectedSize];
+        }];
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        [weakself performSelector:@selector(setComplection:error:) withObject:image withObject:error];
+    }];
+}
+
+- (void) setProgress:(NSInteger) receivedSize andExpectedSize:(NSInteger) expectedSize
+{
+    if (_bCircleType && expectedSize) {
+        
+        if (receivedSize == expectedSize) {
+            [self.circleProgress setHidden:YES];
+        }else{
+            float p=(receivedSize*1.0f)/(expectedSize*1.0f);
+            [self.circleProgress updateProgress:p animated:YES];
+        }
+        
+    }else{
+        
+        if (receivedSize >= expectedSize) {
+            [self.processview setHidden:YES];
+            self.contentMode = UIViewContentModeCenter;
+        }else{
+            float p=(receivedSize*1.0f)/(expectedSize*1.0f);
+            [self.processview setProcess:p];
+        }
+    }
+}
+
+- (void) setComplection:(UIImage *) image error:(NSError *) error
+{
+    if (_bCircleType) {
+        
+        if (image!= nil) {
+            [self.circleProgress removeFromSuperview];
+        }else if (error != nil){
+            [self.circleProgress removeFromSuperview];
+        }
+        
+    }else{
+        if (image!= nil) {
+            self.contentMode = UIViewContentModeScaleAspectFill;
+            [self.processview removeFromSuperview];
+        }else if (error != nil){
+            [self.processview removeFromSuperview];
+        }
+    }
+}
+
+@end

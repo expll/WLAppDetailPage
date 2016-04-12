@@ -1,0 +1,26 @@
+//
+//  XYPhotoBrowser.h
+//  Installer
+//
+//  Created by Eason on 01/12/2013.
+//  Copyright (c) 2013 www.xyzs.com. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@class XYPhotoBrowser;
+@protocol TTPhotoBrowserDelegate <NSObject>
+- (void)photoBrowser:(XYPhotoBrowser *)photoBrowser didChangedToPageAtIndex:(NSUInteger)index;
+@end
+
+@interface XYPhotoBrowser : UIViewController
+
+@property (nonatomic, weak) id<TTPhotoBrowserDelegate> delegate;
+@property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, assign) NSUInteger currentPhotoIndex;
+@property (nonatomic, assign) int iposition;
+
+
+- (void)show;
+
+@end

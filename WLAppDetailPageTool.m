@@ -30,4 +30,26 @@
     return height;
 }
 
++ (UIViewController *)wlTopVC {
+    UIViewController *result;
+    UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
+    if (topWindow.windowLevel != UIWindowLevelNormal){
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(topWindow in windows){
+            if (topWindow.windowLevel == UIWindowLevelNormal)break;
+        }
+    }
+    
+    
+    UIView *rootView = [[topWindow subviews] objectAtIndex:0];
+    id nextResponder = [rootView nextResponder];
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else if ([topWindow respondsToSelector:@selector(rootViewController)] && topWindow.rootViewController != nil)
+        result = topWindow.rootViewController;
+    else{}
+    return result;
+}
+
+
 @end

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view tag="2" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="pMX-LH-bgz">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="欢乐斗地主---" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twz-Lv-H34">
+                    <rect key="frame" x="86" y="8" width="320" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lD9-EM-Vpc">
+                    <rect key="frame" x="86" y="46" width="229" height="18"/>
+                    <color key="backgroundColor" red="1" green="0.1605941162" blue="0.073244348949999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="229" id="ZAq-Ly-rmK"/>
+                        <constraint firstAttribute="height" constant="18" id="k35-hX-ua5"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="348.6MB - 12312次下载" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGs-iV-DRf">
+                    <rect key="frame" x="86" y="64" width="229" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4U7-DI-RaM" customClass="WLSingleAppIcon">
+                    <rect key="frame" x="8" y="7" width="70" height="70"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Twz-Lv-H34" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pMX-LH-bgz" secondAttribute="top" constant="8" id="3AW-6j-Rry"/>
+                <constraint firstItem="lD9-EM-Vpc" firstAttribute="top" relation="lessThanOrEqual" secondItem="Twz-Lv-H34" secondAttribute="bottom" constant="6" id="QDr-wP-hRJ"/>
+                <constraint firstAttribute="trailing" secondItem="Twz-Lv-H34" secondAttribute="trailing" constant="8" id="jFf-Eq-tgH"/>
+                <constraint firstItem="Twz-Lv-H34" firstAttribute="leading" secondItem="pMX-LH-bgz" secondAttribute="leading" constant="86" id="rIc-m9-OSA"/>
+                <constraint firstItem="JGs-iV-DRf" firstAttribute="top" relation="lessThanOrEqual" secondItem="lD9-EM-Vpc" secondAttribute="bottom" constant="6" id="sAY-3d-wiI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="209" y="-81.5"/>
+        </view>
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="cL1-z0-kR7">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="欢乐斗地主---" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UW1-Pb-tqj">
+                    <rect key="frame" x="83" y="8" width="229" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-RH-UhM" customClass="RateView">
+                    <rect key="frame" x="83" y="41" width="229" height="18"/>
+                    <color key="backgroundColor" red="1" green="0.1605941162" blue="0.073244348949999996" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="348.6MB - 12312次下载" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzT-xu-QmM">
+                    <rect key="frame" x="83" y="59" width="229" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PM2-fo-Rko" customClass="WLSingleAppIcon">
+                    <rect key="frame" x="8" y="7" width="64" height="64"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="bzT-xu-QmM" firstAttribute="top" relation="lessThanOrEqual" secondItem="pFT-RH-UhM" secondAttribute="bottom" constant="6" id="11I-T4-H8C"/>
+                <constraint firstItem="pFT-RH-UhM" firstAttribute="top" relation="lessThanOrEqual" secondItem="UW1-Pb-tqj" secondAttribute="bottom" constant="6" id="FSp-re-vGf"/>
+                <constraint firstAttribute="trailing" secondItem="UW1-Pb-tqj" secondAttribute="trailing" constant="8" id="Jya-pn-mqC"/>
+                <constraint firstItem="UW1-Pb-tqj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cL1-z0-kR7" secondAttribute="top" constant="8" id="ei9-5G-ehy"/>
+                <constraint firstItem="UW1-Pb-tqj" firstAttribute="leading" secondItem="cL1-z0-kR7" secondAttribute="leading" constant="83" id="mHh-bA-m7J"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="162" y="-329.5"/>
+        </view>
+        <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="MtW-Wz-D97">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="欢乐斗地主---" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xa4-Hy-dmR">
+                    <rect key="frame" x="83" y="8" width="229" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rEg-dH-Kx5">
+                    <rect key="frame" x="83" y="41" width="229" height="18"/>
+                    <color key="backgroundColor" red="1" green="0.1605941162" blue="0.073244348949999996" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="348.6MB - 12312次下载" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPV-Xx-W6O">
+                    <rect key="frame" x="83" y="59" width="229" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LA-AG-4Ao" customClass="WLSingleAppIcon">
+                    <rect key="frame" x="8" y="7" width="64" height="64"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xa4-Hy-dmR" secondAttribute="trailing" constant="8" id="2Cd-m4-1E5"/>
+                <constraint firstItem="rEg-dH-Kx5" firstAttribute="top" relation="lessThanOrEqual" secondItem="xa4-Hy-dmR" secondAttribute="bottom" constant="6" id="Dv7-Oi-58j"/>
+                <constraint firstItem="xa4-Hy-dmR" firstAttribute="leading" secondItem="MtW-Wz-D97" secondAttribute="leading" constant="83" id="d8q-ZE-Mag"/>
+                <constraint firstItem="xa4-Hy-dmR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MtW-Wz-D97" secondAttribute="top" constant="8" id="e8A-mv-JHj"/>
+                <constraint firstItem="DPV-Xx-W6O" firstAttribute="top" relation="lessThanOrEqual" secondItem="rEg-dH-Kx5" secondAttribute="bottom" constant="6" id="qZw-Pd-gzX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="189.5" y="-202.5"/>
+        </view>
+    </objects>
+</document>

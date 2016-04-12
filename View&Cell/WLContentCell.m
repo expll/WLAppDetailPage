@@ -44,7 +44,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary *heights = [WLAppDetailPageTool wlCalculateCellsHeightByTextDictioanry:self.dataArr[indexPath.row] withFont:13];
+    NSDictionary *heights = [WLAppDetailPageTool wlCalculateCellsHeightByTextDictioanry:self.dataArr[indexPath.row] withFont:11];
     NSString *key = [[heights allKeys] lastObject];
     return [heights[key] floatValue] + 40;
 }
