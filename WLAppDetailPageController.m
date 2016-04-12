@@ -10,6 +10,7 @@
 #import "WLContentCell.h"
 #import "WLRelatedCell.h"
 #import "WLHeadCell.h"
+#import "WLMBProgressHUD.h"
 #import "WLAppDetailPageTool.h"
 #import "WLAppDetailScreenShotView.h"
 
@@ -51,7 +52,11 @@
 - (void)requestData{
     NSURLRequest *requst = [NSURLRequest requestWithURL:[NSURL URLWithString:[APPSTORE_LOOKUP stringByAppendingString:self.appID]]];
     __block typeof(self) weakSelf = self;
+    [WLMBProgressHUD showHUDAddedTo:self.view animated:YES];
     [NSURLConnection sendAsynchronousRequest:requst queue:[[NSOperationQueue alloc] init]completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [WLMBProgressHUD hideHUDForView:self.view animated:YES];
+        });
         if (!connectionError) {
             id JSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
             _dataDic = JSON;
@@ -139,9 +144,20 @@
         return 320;
     } else if (indexPath.row == 2) {
         return ((IPHONE5 || IPHONE6) ? 130 : 137) + 44;
+    } else if (indexPath.row == 3) {
+        CGFloat height = [WLAppDetailPageTool wlCalculateCellsHeightByTextDictioanry:@{@"应用描述":_dataDic[@"results"][0][@"description"]}];
+        return height + 50;
+                          
     }
     return 1000;
 
+}
+
+- (IBAction)install:(id)sender{
+    [WLAppDetailPageTool wlInstallWithAppID:self.appID];
+}
+- (IBAction)share:(id)sender{
+    [[[UIAlertView alloc] initWithTitle:@"分享" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 

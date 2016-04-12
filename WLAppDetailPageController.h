@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XYBaseViewController.h"
 
 @interface WLAppDetailPageController : UIViewController
 @property(nonatomic, strong)NSString *appID;

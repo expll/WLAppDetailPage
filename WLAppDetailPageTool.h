@@ -24,9 +24,13 @@
 #define TTScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define TTScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define APPSTORE_LOOKUP @"https://itunes.apple.com/lookup?country=cn&id="
+#define APP_DESCRIBE_FONT 11
 
 @interface WLAppDetailPageTool : NSObject
 
++ (void)wlInstallWithAppID:(NSString *)appID;
+
++ (CGFloat)wlCalculateCellsHeightByTextDictioanry:(NSDictionary *)texts;
 + (NSDictionary *)wlCalculateCellsHeightByTextDictioanry:(NSDictionary *)texts withFont:(NSInteger)fontSize;
 + (CGFloat)wlCalculateCellsHeightByText:(NSString *)text withFont:(NSInteger)fontSize;
 
